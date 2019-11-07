@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - 'lts/*'
+
+cache:
+  yarn: true
+
+script:
+  - yarn test --coverage
+  - yarn build
+
+deploy:
+  on:
+    branch: master
+  skip_cleanup: true
+  provider: firebase
+  token:
+    - $FIREBASE_TOKEN
