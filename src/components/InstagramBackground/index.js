@@ -8,6 +8,9 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
 
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(false);
+
   // calculate the width of the tiles
   function calcImageDims() {
     if (!images || !images.length) setImageDims(0);
@@ -18,53 +21,54 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
     }
   }
 
-  // const checkForError = response => {
-  //   if (!response.ok) throw Error(response.statusText);
-  //   return response;
-  // };
+  const checkForError = response => {
+    if (!response.ok) throw Error(response.statusText);
+    return response;
+  };
 
-  // loads images when username changes
-  useEffect(() => {
-    if (!username) return;
+  // // loads images when username changes
+  // useEffect(() => {
+  //   if (!username) return;
 
-    async function getMedia() {
-      const resp = await fetch(`https://www.instagram.com/${username}/?__a=1`);
-      // const resp = await fetch(`/.netlify/functions/photos?username=${username}`);
+  //   async function getMedia() {
+  //     const resp = await fetch(`https://www.instagram.com/${username}/?__a=1`);
+  //     // const resp = await fetch(`/.netlify/functions/photos?username=${username}`);
 
-      // good response, load images
-      if (resp.status === 200) {
-        const { graphql } = await resp.json();
+  //     // good response, load images
+  //     if (resp.status === 200) {
+  //       const { graphql } = await resp.json();
+  //       setImages(
+  //         graphql.user.edge_owner_to_timeline_media.edges.map(
+  //           ({ node }) => node.thumbnail_resources
+  //         )
+  //       );
+  //     }
+  //   }
+
+  //   getMedia();
+  // }, [username]);
+
+  React.useEffect(() => {
+    const fetchPhotos = async username => {
+      setLoading(true);
+      try {
+        const resp = await fetch(
+          `/.netlify/functions/photos?username=${username}`
+        );
+        const { graphql } = await checkForError(resp).json();
         setImages(
           graphql.user.edge_owner_to_timeline_media.edges.map(
             ({ node }) => node.thumbnail_resources
           )
         );
+      } catch (e) {
+        setError(true);
       }
-    }
+      setLoading(false);
+    };
 
-    getMedia();
+    fetchPhotos(username);
   }, [username]);
-
-  // React.useEffect(() => {
-  //   const fetchPhotos = async page => {
-  //     setLoading(true);
-  //     try {
-  //       const result = await fetch(`/.netlify/functions/photos?page=${page}`);
-  //       const photoResult = await checkForError(result).json();
-
-  //     // const resp = await fetch(`/.netlify/functions/photos?username=${username}`);
-  //     // const { graphql } = await checkForError(resp).json();
-
-  //       setImages(photos => {
-  //         return photos.concat(photoResult);
-  //       });
-  //     } catch (e) {
-  //       setError(true);
-  //     }
-  //     setLoading(false);
-  //   };
-  //   fetchPhotos(page);
-  // }, [page]);
 
   // updates tile dimensions on image load
   useEffect(calcImageDims, [images]);
