@@ -69,8 +69,6 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
   // updates tile dimensions on image load
   useEffect(calcImageDims, [images]);
 
-  console.log(images);
-
   // update tiles when window resizes (with cleanup)
   useEffect(() => {
     window.addEventListener('resize', calcImageDims);
