@@ -32,7 +32,6 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
 
   //   async function getMedia() {
   //     const resp = await fetch(`https://www.instagram.com/${username}/?__a=1`);
-  //     // const resp = await fetch(`/.netlify/functions/photos?username=${username}`);
 
   //     // good response, load images
   //     if (resp.status === 200) {
