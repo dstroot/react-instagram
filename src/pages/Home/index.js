@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import styled from 'styled-components';
 
 // components
-import InstagramBackground from 'components/InstagramBackground';
+// import InstagramBackground from 'components/InstagramBackground';
+import InstagramBackground from 'components/InstagramBackground2';
 
 const Home = ({ app, page }) => {
   // Set the page title and position using the useEffect hook
@@ -12,27 +13,29 @@ const Home = ({ app, page }) => {
   });
 
   return (
-    <Main>
-      <InstagramBackground
-        username="ferrytalecreative"
-        filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
-      />
-      <Fence>
-        <Splash>
-          <Title>Ferry Tale Creative</Title>
-          <Lead>
-            Thanks for visiting us! Follow us on Instagram to get the lastest
-            looks. Also check out page background!
-          </Lead>
-          <Lead>
-            Our store will soon be open for business. Until then look around and
-            let us know what you think.
-          </Lead>
-          <Button>@ferrytalecreative</Button>
-        </Splash>
-        <Spacer />
-      </Fence>
-    </Main>
+    <Suspense fallback="null">
+      <Main>
+        <InstagramBackground
+          username="ferrytalecreative"
+          filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
+        />
+        <Fence>
+          <Splash>
+            <Title>Ferry Tale Creative</Title>
+            <Lead>
+              Thanks for visiting us! Follow us on Instagram to get the lastest
+              looks. Also check out page background!
+            </Lead>
+            <Lead>
+              Our store will soon be open for business. Until then look around
+              and let us know what you think.
+            </Lead>
+            <Button>@ferrytalecreative</Button>
+          </Splash>
+          <Spacer />
+        </Fence>
+      </Main>
+    </Suspense>
   );
 };
 
@@ -59,14 +62,14 @@ const Spacer = styled.div`
 
 const Splash = styled.div`
   position: relative;
-  left: 20vw;
-  top: 20vh;
+  left: 15vw;
+  top: 15vh;
   width: 60vw;
   height: 40vh;
 `;
 
 const Title = styled.h1`
-  font-size: 4em;
+  font-size: 3.5em;
   color: white;
   font-weight: 300;
 `;

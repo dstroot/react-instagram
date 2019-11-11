@@ -2,14 +2,28 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+// get data
+import { useQuery } from 'react-query';
+import { fetchInstagram } from '../queries';
+
 // https://gist.github.com/kjintroverted/d67c7f12f68288f6ccf07cbd06fa66a8
 
 const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
+  const { data } = useQuery(['photos', { username }], fetchInstagram, {
+    suspense: true,
+  });
 
-  // const [loading, setLoading] = React.useState(false);
-  // const [error, setError] = React.useState(false);
+  // loads images from data
+  useEffect(() => {
+    const { graphql } = data;
+    setImages(
+      graphql.user.edge_owner_to_timeline_media.edges.map(
+        ({ node }) => node.thumbnail_resources
+      )
+    );
+  }, [data]);
 
   // calculate the width of the tiles
   function calcImageDims() {
@@ -20,54 +34,6 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
       );
     }
   }
-
-  const checkForError = response => {
-    if (!response.ok) throw Error(response.statusText);
-    return response;
-  };
-
-  // loads images when username changes
-  useEffect(() => {
-    if (!username) return;
-
-    async function getMedia() {
-      const resp = await fetch(`https://www.instagram.com/${username}/?__a=1`);
-
-      // good response, load images
-      if (resp.status === 200) {
-        const { graphql } = await checkForError(resp).json();
-        setImages(
-          graphql.user.edge_owner_to_timeline_media.edges.map(
-            ({ node }) => node.thumbnail_resources
-          )
-        );
-      }
-    }
-
-    getMedia();
-  }, [username]);
-
-  // React.useEffect(() => {
-  //   const fetchPhotos = async username => {
-  //     // setLoading(true);
-  //     try {
-  //       const resp = await fetch(
-  //         `/.netlify/functions/photos?username=${username}`
-  //       );
-  //       const { graphql } = await checkForError(resp).json();
-  //       setImages(
-  //         graphql.user.edge_owner_to_timeline_media.edges.map(
-  //           ({ node }) => node.thumbnail_resources
-  //         )
-  //       );
-  //     } catch (e) {
-  //       // setError(true);
-  //     }
-  //     // setLoading(false);
-  //   };
-
-  //   fetchPhotos(username);
-  // }, [username]);
 
   // updates tile dimensions on image load
   useEffect(calcImageDims, [images]);
