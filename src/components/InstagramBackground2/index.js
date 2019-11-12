@@ -11,8 +11,9 @@ import { fetchInstagram } from '../queries';
 const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
-  const { data } = useQuery(['photos', { username }], fetchInstagram, {
+  const { data, error } = useQuery(['photos', { username }], fetchInstagram, {
     suspense: true,
+    retry: 2,
   });
 
   // loads images from data
@@ -46,6 +47,10 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
       window.removeEventListener('resize', calcImageDims);
     };
   });
+
+  if (error) {
+    console.log(error);
+  }
 
   /**
    * Styles

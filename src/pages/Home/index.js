@@ -3,9 +3,11 @@ import styled from 'styled-components';
 
 // components
 // import InstagramBackground from 'components/InstagramBackground';
+import Loader from 'react-loader-spinner';
+import ErrorBoundary from 'ErrorBoundary';
 import InstagramBackground from 'components/InstagramBackground2';
 
-const Home = ({ app, page }) => {
+const Home = () => {
   // Set the page title and position using the useEffect hook
   useEffect(() => {
     document.title = `Instagram Background • Home`;
@@ -13,29 +15,40 @@ const Home = ({ app, page }) => {
   });
 
   return (
-    <Suspense fallback="null">
-      <Main>
-        <InstagramBackground
-          username="ferrytalecreative"
-          filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
-        />
-        <Fence>
-          <Splash>
-            <Title>Ferry Tale Creative</Title>
-            <Lead>
-              Thanks for visiting us! Follow us on Instagram to get the lastest
-              looks. Also check out page background!
-            </Lead>
-            <Lead>
-              Our store will soon be open for business. Until then look around
-              and let us know what you think.
-            </Lead>
-            <Button>@ferrytalecreative</Button>
-          </Splash>
-          <Spacer />
-        </Fence>
-      </Main>
-    </Suspense>
+    <Main>
+      <ErrorBoundary>
+        <Suspense
+          fallback={
+            <Loader
+              type="Oval"
+              color="#1089ff"
+              height={100}
+              width={100}
+              timeout={6000} //3 secs
+            />
+          }
+        >
+          <InstagramBackground
+            username="ferrytalecreative"
+            filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
+          />
+          <Main>
+            <Splash>
+              <Title>Ferry Tale Creative</Title>
+              <Lead>
+                Thanks for visiting us! Follow us on Instagram to get the
+                lastest looks. Also check out page background!
+              </Lead>
+              <Lead>
+                Our store will soon be open for business. Until then look around
+                and let us know what you think.
+              </Lead>
+              <Button>@ferrytalecreative</Button>
+            </Splash>
+          </Main>
+        </Suspense>
+      </ErrorBoundary>
+    </Main>
   );
 };
 
@@ -45,27 +58,16 @@ export default Home;
 const Main = styled.div`
   display: flex;
   justify-content: center;
-`;
-
-const Fence = styled.div`
-  position: fixed;
+  align-items: center;
+  width: 100vw;
   height: 100vh;
-  width: 100%;
-  max-width: 1000px;
-  display: flex;
-  // align-items: center;
-`;
-
-const Spacer = styled.div`
-  flex: 1;
 `;
 
 const Splash = styled.div`
   position: relative;
-  left: 15vw;
-  top: 15vh;
-  width: 60vw;
-  height: 40vh;
+  width: 70vw;
+  padding-bottom: 10vh;
+  // padding-right: 10vw;
 `;
 
 const Title = styled.h1`
