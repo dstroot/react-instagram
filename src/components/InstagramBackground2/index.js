@@ -18,20 +18,26 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
 
   // loads images from data
   useEffect(() => {
-    const { graphql } = data;
-    setImages(
-      graphql.user.edge_owner_to_timeline_media.edges.map(
-        ({ node }) => node.thumbnail_resources
-      )
-    );
-  }, [data]);
+    if (!error && data) {
+      const { graphql } = data;
+      setImages(
+        graphql.user.edge_owner_to_timeline_media.edges.map(
+          ({ node }) => node.thumbnail_resources
+        )
+      );
+    }
+  }, [data, error]);
 
   // calculate the width of the tiles
+  // https://ryanve.com/lab/dimensions/
   function calcImageDims() {
-    if (!images || !images.length) setImageDims(0);
-    else {
+    if (!images || !images.length) {
+      setImageDims(0);
+    } else {
       setImageDims(
-        Math.sqrt((window.innerHeight * window.innerWidth) / images.length)
+        Math.floor(
+          Math.sqrt((window.outerHeight * window.outerWidth) / images.length)
+        )
       );
     }
   }

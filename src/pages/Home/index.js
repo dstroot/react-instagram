@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 // components
 // import InstagramBackground from 'components/InstagramBackground';
-import Loader from 'react-loader-spinner';
 import ErrorBoundary from 'ErrorBoundary';
+import { Loader } from 'components/Loader';
 import InstagramBackground from 'components/InstagramBackground2';
 
 const Home = () => {
@@ -20,11 +20,10 @@ const Home = () => {
         <Suspense
           fallback={
             <Loader
-              type="Oval"
               color="#1089ff"
               height={100}
               width={100}
-              timeout={6000} //3 secs
+              // timeout={6000} //3 secs
             />
           }
         >
@@ -37,7 +36,7 @@ const Home = () => {
               <Title>Ferry Tale Creative</Title>
               <Lead>
                 Thanks for visiting us! Follow us on Instagram to get the
-                lastest looks. Also check out page background!
+                lastest looks. Also check out the page background! Cool right?
               </Lead>
               <Lead>
                 Our store will soon be open for business. Until then look around

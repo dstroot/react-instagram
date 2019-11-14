@@ -25,7 +25,7 @@ export function fetchInstagram({ username }) {
 // }
 
 export async function fetchNetlify({ username }) {
-  return (await fetch(
-    `/.netlify/functions/photos?username=${username}`
-  )).json();
+  return (
+    await fetch(`/.netlify/functions/photos?username=${username}`)
+  ).json();
 }
