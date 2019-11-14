@@ -2,10 +2,10 @@ import React, { Suspense, useEffect } from 'react';
 import styled from 'styled-components';
 
 // components
-// import InstagramBackground from 'components/InstagramBackground';
+import InstagramBackground from 'components/InstagramBackground';
 import ErrorBoundary from 'ErrorBoundary';
 import { Loader } from 'components/Loader';
-import InstagramBackground from 'components/InstagramBackground2';
+// import InstagramBackground from 'components/InstagramBackground2';
 
 const Home = () => {
   // Set the page title and position using the useEffect hook
