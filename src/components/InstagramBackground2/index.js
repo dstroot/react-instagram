@@ -85,15 +85,20 @@ const InstagramBackground = ({ username, quality }) => {
     object-fit: cover;
   `;
   
-  return {!error ?
-    <Container>
-      {images &&
-        images.map(res => (
-          <Tile key={res[0].src}>
-            <Post src={res[quality || 1].src} alt="recent post" />
-          </Tile>
-        ))}
-    </Container> : null};
+  if (!error) {
+    return (
+      <Container>
+        {images &&
+          images.map(res => (
+            <Tile key={res[0].src}>
+              <Post src={res[quality || 1].src} alt="recent post" />
+            </Tile>
+          ))}
+      </Container>
+    )
+  };
+
+  return null;
 };
 
 export default InstagramBackground;
