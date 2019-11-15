@@ -8,7 +8,7 @@ import { fetchInstagram } from '../queries';
 
 // https://gist.github.com/kjintroverted/d67c7f12f68288f6ccf07cbd06fa66a8
 
-const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
+const InstagramBackground = ({ username, quality }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
   const { data, error } = useQuery(['photos', { username }], fetchInstagram, {
@@ -54,9 +54,9 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
     };
   });
 
-  if (error) {
-    console.log(error);
-  }
+  //if (error) {
+  //  console.log(error);
+  //}
 
   /**
    * Styles
@@ -69,22 +69,7 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
     flex-grow: 1;
   `;
 
-  // CREATES A FILTER OVER TOP
-  // NOTE: the way the filter options are working one will always be "wrong".  Should do one or the other depending on what is passed.
-
-  // background-color: to bottom righttealbluepurple; <= Error!
-  // background-image: linear-gradient( to bottom right,teal,blue,purple );
-
-  const Filter = styled.div`
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: ${filterOpts}; /* USED IF ONE COLOR PASSED */
-    background-image: linear-gradient(
-      ${filterOpts.join()}
-    ); /* USED IF GRADIENT OPTS PASSED */
-    opacity: 0.7;
-  `;
+  
 
   const Container = styled.div`
     position: fixed;
@@ -101,6 +86,7 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
   `;
 
   return (
+    {!error ?
     <Container>
       {images &&
         images.map(res => (
@@ -108,8 +94,7 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
             <Post src={res[quality || 1].src} alt="recent post" />
           </Tile>
         ))}
-      <Filter />
-    </Container>
+    </Container>}
   );
 };
 
@@ -119,9 +104,7 @@ InstagramBackground.propTypes = {
   /** The username of the Instagram account to use  */
   username: PropTypes.string.isRequired,
   /** The quality of the images. Range is 0-4. 0 = 150x150, 1 = 240x240, 2 = 320x320, 3 = 480x480, 4 = 640x640. Defaults to 1 */
-  quality: PropTypes.number,
-  /** Pass a single color or a gradient. Example of gradient: filterOpts={["to bottom right", "teal", "blue", "purple"]} */
-  filterOpts: PropTypes.arrayOf(PropTypes.string),
+  quality: PropTypes.number
 };
 
 // Specifies the default values for props:
