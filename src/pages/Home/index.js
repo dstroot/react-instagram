@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <Main>
       <ErrorBoundary>
-        <Suspense
+    {/*<Suspense
           fallback={
             <Loader
               color="#1089ff"
@@ -27,7 +27,8 @@ const Home = () => {
               // timeout={6000} //3 secs
             />
           }
-        >
+        >*/}
+        <Suspense fallback={<></>} >
           <InstagramBackground
             username="ferrytalecreative"
           />
