@@ -84,9 +84,8 @@ const InstagramBackground = ({ username, quality }) => {
     width: 100%;
     object-fit: cover;
   `;
-
-  return (
-    {(!error) ?
+  
+  return {!error ?
     <Container>
       {images &&
         images.map(res => (
@@ -94,8 +93,7 @@ const InstagramBackground = ({ username, quality }) => {
             <Post src={res[quality || 1].src} alt="recent post" />
           </Tile>
         ))}
-    </Container> : null}
-  );
+    </Container> : null};
 };
 
 export default InstagramBackground;
