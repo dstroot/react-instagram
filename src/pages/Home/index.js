@@ -31,8 +31,10 @@ const Home = () => {
           <InstagramBackground
             username="ferrytalecreative"
           />
-          <BackgroundWash filterOpts={['to bottom right', 'teal', 'blue', 'purple']} />
-          <Main>
+        </Suspense>
+      </ErrorBoundary>
+        <BackgroundWash filterOpts={['to bottom right', 'teal', 'blue', 'purple']} />
+        <Main>
             <Splash>
               <Title>Ferry Tale Creative</Title>
               <Lead>
@@ -46,8 +48,6 @@ const Home = () => {
               <Button>@ferrytalecreative</Button>
             </Splash>
           </Main>
-        </Suspense>
-      </ErrorBoundary>
     </Main>
   );
 };
