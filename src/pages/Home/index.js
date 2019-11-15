@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // components
 import InstagramBackground from 'components/InstagramBackground';
+import BackgroundWash from 'components/BackgroundWash';
 import ErrorBoundary from 'ErrorBoundary';
 import { Loader } from 'components/Loader';
 // import InstagramBackground from 'components/InstagramBackground2';
@@ -29,8 +30,8 @@ const Home = () => {
         >
           <InstagramBackground
             username="ferrytalecreative"
-            filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
           />
+          <BackgroundWash filterOpts={['to bottom right', 'teal', 'blue', 'purple']} />
           <Main>
             <Splash>
               <Title>Ferry Tale Creative</Title>
