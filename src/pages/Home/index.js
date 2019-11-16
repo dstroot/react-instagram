@@ -2,31 +2,18 @@ import React, { Suspense, useEffect } from 'react';
 import styled from 'styled-components';
 
 // components
-//import InstagramBackground from 'components/InstagramBackground';
 import BackgroundWash from 'components/BackgroundWash';
-import ErrorBoundary from 'ErrorBoundary';
-// import { Loader } from 'components/Loader';
+import ErrorBoundary from 'components/ErrorBoundary';
 import InstagramBackground from 'components/InstagramBackground2';
 
 const Home = () => {
-  // Set the page title and position using the useEffect hook
   useEffect(() => {
     document.title = `Instagram Background • Home`;
-    window.scrollTo(0, 0);
   });
 
   return (
     <Main>
       <ErrorBoundary>
-        {/*<Suspense
-          fallback={
-            <Loader
-              color="#1089ff"
-              height={100}
-              width={100}
-            />
-          }
-        >*/}
         <Suspense fallback={<></>}>
           <InstagramBackground username="ferrytalecreative" />
         </Suspense>

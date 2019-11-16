@@ -4,16 +4,15 @@ class ErrorBoundary extends Component {
   state = { hasError: false };
 
   componentDidCatch(error, info) {
-    // Display fallback UI
     this.setState({ hasError: true });
 
-    // You can also log the error to an error reporting service
+    // You can also log the error to an error reporting service here
     // logErrorToMyService(error, info);
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render custom fallback UI
+      // render custom fallback UI
       return <h1>Something went wrong!</h1>;
     }
 

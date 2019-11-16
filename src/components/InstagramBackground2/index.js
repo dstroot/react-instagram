@@ -13,7 +13,7 @@ const InstagramBackground = ({ username, quality }) => {
   const [imageDims, setImageDims] = useState(0);
   const { data, error } = useQuery(['photos', { username }], fetchInstagram, {
     suspense: true,
-    retry: 2,
+    retry: 3,
   });
 
   // loads images from data
