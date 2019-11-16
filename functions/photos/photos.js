@@ -15,7 +15,7 @@ let cache = {}; // Defined outside the function globally
 //   "isBase64Encoded": "A boolean flag to indicate if the applicable request payload is Base64-encode"
 // }
 
-export async function handler(event, context) {
+exports.handler = async function(event, context) {
   const { username } = event.queryStringParameters;
   try {
     if (cache[username]) {
