@@ -1,7 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test component Home: it should render 1`] = `
-<h1>
-  Hello!
-</h1>
+<div
+  class="sc-bdVaJa iDPgMh"
+>
+  <div
+    class="sc-EHOje kZCxfr"
+  />
+  <div
+    class="sc-bdVaJa iDPgMh"
+  >
+    <div
+      class="sc-bwzfXH hNHvRd"
+    >
+      <h1
+        class="sc-htpNat gzPCZx"
+      >
+        Ferry Tale Creative
+      </h1>
+      <p
+        class="sc-bxivhb fHYAUi"
+      >
+        Thanks for visiting us! Follow us on Instagram to get the lastest looks. Also check out the page background! Cool right?
+      </p>
+      <p
+        class="sc-bxivhb fHYAUi"
+      >
+        Our store will soon be open for business. Until then look around and let us know what you think.
+      </p>
+      <button
+        class="sc-ifAKCX bVPOgF"
+      >
+        @ferrytalecreative
+      </button>
+    </div>
+  </div>
+</div>
 `;

@@ -10,8 +10,7 @@ const getJSON = response => {
 };
 
 /**
- * Queries: two diferent ways to write them,
- *          Second way is not checking errors.
+ * Queries: two diferent ways to write them, second way is not checking errors.
  */
 
 export function fetchInstagram({ username }) {

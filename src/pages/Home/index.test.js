@@ -16,7 +16,7 @@ describe('Test component Home:', () => {
 
   it('it should contain the expected text', () => {
     const { getByText } = render(<Home />);
-    const element = getByText(`Hello`, { exact: false });
+    const element = getByText(`Ferry Tale Creative`, { exact: false });
     expect(element).toBeInTheDocument();
   });
 });

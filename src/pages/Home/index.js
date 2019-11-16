@@ -5,7 +5,7 @@ import styled from 'styled-components';
 //import InstagramBackground from 'components/InstagramBackground';
 import BackgroundWash from 'components/BackgroundWash';
 import ErrorBoundary from 'ErrorBoundary';
-import { Loader } from 'components/Loader';
+// import { Loader } from 'components/Loader';
 import InstagramBackground from 'components/InstagramBackground2';
 
 const Home = () => {
@@ -18,37 +18,36 @@ const Home = () => {
   return (
     <Main>
       <ErrorBoundary>
-    {/*<Suspense
+        {/*<Suspense
           fallback={
             <Loader
               color="#1089ff"
               height={100}
               width={100}
-              // timeout={6000} //3 secs
             />
           }
         >*/}
-        <Suspense fallback={<></>} >
-          <InstagramBackground
-            username="ferrytalecreative"
-          />
+        <Suspense fallback={<></>}>
+          <InstagramBackground username="ferrytalecreative" />
         </Suspense>
       </ErrorBoundary>
-        <BackgroundWash filterOpts={['to bottom right', 'teal', 'blue', 'purple']} />
-        <Main>
-            <Splash>
-              <Title>Ferry Tale Creative</Title>
-              <Lead>
-                Thanks for visiting us! Follow us on Instagram to get the
-                lastest looks. Also check out the page background! Cool right?
-              </Lead>
-              <Lead>
-                Our store will soon be open for business. Until then look around
-                and let us know what you think.
-              </Lead>
-              <Button>@ferrytalecreative</Button>
-            </Splash>
-          </Main>
+      <BackgroundWash
+        filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
+      />
+      <Main>
+        <Splash>
+          <Title>Ferry Tale Creative</Title>
+          <Lead>
+            Thanks for visiting us! Follow us on Instagram to get the lastest
+            looks. Also check out the page background! Cool right?
+          </Lead>
+          <Lead>
+            Our store will soon be open for business. Until then look around and
+            let us know what you think.
+          </Lead>
+          <Button>@ferrytalecreative</Button>
+        </Splash>
+      </Main>
     </Main>
   );
 };

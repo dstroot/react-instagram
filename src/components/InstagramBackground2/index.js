@@ -54,10 +54,6 @@ const InstagramBackground = ({ username, quality }) => {
     };
   });
 
-  //if (error) {
-  //  console.log(error);
-  //}
-
   /**
    * Styles
    */
@@ -69,7 +65,11 @@ const InstagramBackground = ({ username, quality }) => {
     flex-grow: 1;
   `;
 
-  
+  const Post = styled.img`
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  `;
 
   const Container = styled.div`
     position: fixed;
@@ -79,12 +79,6 @@ const InstagramBackground = ({ username, quality }) => {
     flex-wrap: wrap;
   `;
 
-  const Post = styled.img`
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  `;
-  
   if (!error) {
     return (
       <Container>
@@ -95,8 +89,8 @@ const InstagramBackground = ({ username, quality }) => {
             </Tile>
           ))}
       </Container>
-    )
-  };
+    );
+  }
 
   return null;
 };
@@ -107,7 +101,7 @@ InstagramBackground.propTypes = {
   /** The username of the Instagram account to use  */
   username: PropTypes.string.isRequired,
   /** The quality of the images. Range is 0-4. 0 = 150x150, 1 = 240x240, 2 = 320x320, 3 = 480x480, 4 = 640x640. Defaults to 1 */
-  quality: PropTypes.number
+  quality: PropTypes.number,
 };
 
 // Specifies the default values for props:

@@ -3,21 +3,16 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const BackgroundWash = ({ filterOpts = [] }) => {
-
   // CREATES A FILTER OVER TOP
   const Filter = styled.div`
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-image: linear-gradient(
-      ${filterOpts.join()}
-    );
+    background-image: linear-gradient(${filterOpts.join()});
     opacity: 0.7;
   `;
 
-  return (
-      <Filter />
-  );
+  return <Filter />;
 };
 
 export default BackgroundWash;
