@@ -1,5 +1,4 @@
-// const fetch = require('node-fetch');
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
 let cache = {}; // Defined outside the function globally
 
