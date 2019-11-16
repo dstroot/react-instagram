@@ -1,11 +1,10 @@
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
 let cache = {}; // Defined outside the function globally
 
-// Handler
-// Netlify provides the event and context parameters when the serverless
-// function is invoked. You provide the callback parameter, which is
-// optional, but recommended.
+// Netlify provides the "event" and "context" parameters when the serverless
+// handler function is invoked.
 
 // Event object looks like this:
 // {
@@ -17,9 +16,9 @@ let cache = {}; // Defined outside the function globally
 //   "isBase64Encoded": "A boolean flag to indicate if the applicable request payload is Base64-encode"
 // }
 
-exports.handler = async function(event, context, callback) {
+export async function handler(event, context) {
+  const { username } = event.queryStringParameters;
   try {
-    const { username } = event.queryStringParameters;
     if (cache[username]) {
       return {
         headers: {
@@ -35,7 +34,6 @@ exports.handler = async function(event, context, callback) {
       {
         headers: {
           Accept: 'application/json',
-          // Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`
         },
       }
     );
@@ -54,10 +52,11 @@ exports.handler = async function(event, context, callback) {
       body: JSON.stringify(username),
     };
   } catch (err) {
+    console.log('Function name: ', context.functionName);
     console.log(err); // output to netlify function log
     return {
       statusCode: 500,
       body: JSON.stringify({ msg: err.message }),
     };
   }
-};
+}
