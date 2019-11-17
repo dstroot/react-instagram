@@ -4,7 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Uses netlify's tools to operate a local dev environment for our lambda function
   * Run `yarn lambda` in one terminal session
   * Run `yarn start` in another
-* Uses React suspense. Using react-query we can call our API with suspense support.
+* Uses React suspense. Using react-query we can call our API with suspense support.  However we don't want any fallback UI so this was a bit strange.  In any case it seem to make thngs faster overall.
+* We **preload** the API call in the head so the site is faster.  See index.html in /public.
 
 ### Resources
 
