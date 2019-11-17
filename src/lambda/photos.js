@@ -15,9 +15,18 @@ let cache = {}; // Defined outside the function globally
 //   "isBase64Encoded": "A boolean flag to indicate if the applicable request payload is Base64-encode"
 // }
 
+// Callback looks like this:
+// {
+//   "isBase64Encoded": true|false,
+//   "statusCode": httpStatusCode,
+//   "headers": { "headerName": "headerValue", ... },
+//   "body": "..."
+// }
+
 exports.handler = async function(event, context) {
   const { username } = event.queryStringParameters;
   try {
+    // check if it's cached
     if (cache[username]) {
       return {
         headers: {
@@ -28,6 +37,7 @@ exports.handler = async function(event, context) {
       };
     }
 
+    // otherwise go get it and cache it
     const response = await fetch(
       `https://www.instagram.com/${username}/?__a=1`,
       {
