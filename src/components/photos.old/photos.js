@@ -48,7 +48,7 @@ exports.handler = async function(event, context) {
         'USED-CACHE': 'false',
       },
       statusCode: 200,
-      body: JSON.stringify(username),
+      body: JSON.stringify(data),
     };
   } catch (err) {
     console.log('Function name: ', context.functionName);
@@ -58,4 +58,4 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({ msg: err.message }),
     };
   }
-}
+};
