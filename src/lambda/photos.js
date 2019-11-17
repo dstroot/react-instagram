@@ -1,13 +1,6 @@
-// exports.handler = async function(event, context) {
-//   return {
-//     statusCode: 200,
-//     body: 'hello world',
-//   };
-// };
+import fetch from 'node-fetch';
 
-const fetch = require('node-fetch');
-
-var cache = {}; // Defined outside the function globally
+let cache = {}; // Defined outside the function globally
 
 // Netlify provides the "event" and "context" parameters when the serverless
 // handler function is invoked.
@@ -55,7 +48,7 @@ exports.handler = async function(event, context) {
         'USED-CACHE': 'false',
       },
       statusCode: 200,
-      body: JSON.stringify(username),
+      body: JSON.stringify(data),
     };
   } catch (err) {
     console.log('Function name: ', context.functionName);

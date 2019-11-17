@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 
 // get data
 import { useQuery } from 'react-query';
-import { fetchInstagram } from '../queries';
+import { fetchNetlify } from '../queries';
 
 // https://gist.github.com/kjintroverted/d67c7f12f68288f6ccf07cbd06fa66a8
 
 const InstagramBackground = ({ username, quality }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
-  const { data, error } = useQuery(['photos', { username }], fetchInstagram, {
+  const { data, error } = useQuery(['photos', { username }], fetchNetlify, {
     suspense: true,
     retry: 3,
   });
