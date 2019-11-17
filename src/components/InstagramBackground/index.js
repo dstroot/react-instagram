@@ -4,70 +4,55 @@ import PropTypes from 'prop-types';
 
 // https://gist.github.com/kjintroverted/d67c7f12f68288f6ccf07cbd06fa66a8
 
-const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
+const InstagramBackground = ({ username, quality }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
-
-  // const [loading, setLoading] = React.useState(false);
-  // const [error, setError] = React.useState(false);
+  // loading state
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(false);
 
   // calculate the width of the tiles
+  // https://ryanve.com/lab/dimensions/
   function calcImageDims() {
-    if (!images || !images.length) setImageDims(0);
-    else {
+    if (!images || !images.length) {
+      setImageDims(0);
+    } else {
       setImageDims(
-        Math.sqrt((window.innerHeight * window.innerWidth) / images.length)
+        Math.floor(
+          Math.sqrt((window.outerHeight * window.outerWidth) / images.length)
+        )
       );
     }
   }
 
+  // make sure response is ok
   const checkForError = response => {
     if (!response.ok) throw Error(response.statusText);
     return response;
   };
 
   // loads images when username changes
-  useEffect(() => {
-    if (!username) return;
-
-    async function getMedia() {
-      const resp = await fetch(`https://www.instagram.com/${username}/?__a=1`);
-
-      // good response, load images
-      if (resp.status === 200) {
+  React.useEffect(() => {
+    const fetchPhotos = async username => {
+      setLoading(true);
+      try {
+        const resp = await fetch(
+          `/.netlify/functions/photos?username=${username}`
+        );
         const { graphql } = await checkForError(resp).json();
         setImages(
           graphql.user.edge_owner_to_timeline_media.edges.map(
             ({ node }) => node.thumbnail_resources
           )
         );
+      } catch (e) {
+        setError(true);
       }
-    }
+      setLoading(false);
+    };
 
-    getMedia();
+    fetchPhotos(username);
   }, [username]);
-
-  // React.useEffect(() => {
-  //   const fetchPhotos = async username => {
-  //     // setLoading(true);
-  //     try {
-  //       const resp = await fetch(
-  //         `/.netlify/functions/photos?username=${username}`
-  //       );
-  //       const { graphql } = await checkForError(resp).json();
-  //       setImages(
-  //         graphql.user.edge_owner_to_timeline_media.edges.map(
-  //           ({ node }) => node.thumbnail_resources
-  //         )
-  //       );
-  //     } catch (e) {
-  //       // setError(true);
-  //     }
-  //     // setLoading(false);
-  //   };
-
-  //   fetchPhotos(username);
-  // }, [username]);
 
   // updates tile dimensions on image load
   useEffect(calcImageDims, [images]);
@@ -92,23 +77,6 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
     flex-grow: 1;
   `;
 
-  // CREATES A FILTER OVER TOP
-  // NOTE: the way the filter options are working one will always be "wrong".  Should do one or the other depending on what is passed.
-
-  // background-color: to bottom righttealbluepurple; <= Error!
-  // background-image: linear-gradient( to bottom right,teal,blue,purple );
-
-  const Filter = styled.div`
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: ${filterOpts}; /* USED IF ONE COLOR PASSED */
-    background-image: linear-gradient(
-      ${filterOpts.join()}
-    ); /* USED IF GRADIENT OPTS PASSED */
-    opacity: 0.7;
-  `;
-
   const Container = styled.div`
     position: fixed;
     width: 100vw;
@@ -123,17 +91,20 @@ const InstagramBackground = ({ username, quality, filterOpts = [] }) => {
     object-fit: cover;
   `;
 
-  return (
-    <Container>
-      {images &&
-        images.map(res => (
-          <Tile key={res[0].src}>
-            <Post src={res[quality || 1].src} alt="recent post" />
-          </Tile>
-        ))}
-      <Filter />
-    </Container>
-  );
+  if (!error && !loading) {
+    return (
+      <Container>
+        {images &&
+          images.map(res => (
+            <Tile key={res[0].src}>
+              <Post src={res[quality || 1].src} alt="recent post" />
+            </Tile>
+          ))}
+      </Container>
+    );
+  }
+
+  return null;
 };
 
 export default InstagramBackground;
@@ -143,8 +114,6 @@ InstagramBackground.propTypes = {
   username: PropTypes.string.isRequired,
   /** The quality of the images. Range is 0-4. 0 = 150x150, 1 = 240x240, 2 = 320x320, 3 = 480x480, 4 = 640x640. Defaults to 1 */
   quality: PropTypes.number,
-  /** Pass a single color or a gradient. Example of gradient: filterOpts={["to bottom right", "teal", "blue", "purple"]} */
-  filterOpts: PropTypes.arrayOf(PropTypes.string),
 };
 
 // Specifies the default values for props:

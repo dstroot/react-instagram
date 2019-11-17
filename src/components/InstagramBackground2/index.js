@@ -11,10 +11,14 @@ import { fetchNetlify } from '../queries';
 const InstagramBackground = ({ username, quality }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
-  const { data, error } = useQuery(['photos', { username }], fetchNetlify, {
-    suspense: true,
-    retry: 3,
-  });
+  const { data, isLoading, error } = useQuery(
+    ['photos', { username }],
+    fetchNetlify,
+    {
+      suspense: true,
+      retry: 3,
+    }
+  );
 
   // loads images from data
   useEffect(() => {
@@ -79,7 +83,7 @@ const InstagramBackground = ({ username, quality }) => {
     flex-wrap: wrap;
   `;
 
-  if (!error) {
+  if (!error && !isLoading) {
     return (
       <Container>
         {images &&
