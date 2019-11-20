@@ -9,9 +9,9 @@ afterEach(cleanup);
 
 // test the component
 describe('Test component Home:', () => {
-  it('it should render', () => {
-    const { container } = render(<Home />);
-    expect(container.firstChild).toMatchSnapshot();
+  it('it renders', () => {
+    const { asFragment } = render(<Home />);
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('it should contain the expected text', () => {

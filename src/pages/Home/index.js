@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // components
 import BackgroundWash from 'components/BackgroundWash';
 import ErrorBoundary from 'components/ErrorBoundary';
-import InstagramBackground from 'components/InstagramBackground2';
+import InstagramBackground from 'components/InstagramBackground';
 
 const Home = () => {
   useEffect(() => {

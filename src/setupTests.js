@@ -1,6 +1,8 @@
 // mock canvas
 import 'jest-canvas-mock';
 
+global.fetch = require('jest-fetch-mock')
+
 // setup react testing library
 import '@testing-library/jest-dom/extend-expect';
 
