@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 // app
-import App from './App';
+import {App} from './App';
 
 // enable strict mode *and* concurrent mode
 const rootElement = document.getElementById('root');
