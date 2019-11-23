@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import pretty from 'pretty';
 
 // component to test  https://reactjs.org/docs/testing-recipes.html
-import InstagramBackground from '.';
+import { InstagramBackground } from '.';
 import data from './__test__/data.json';
 
 let container = null;
@@ -24,20 +24,31 @@ afterEach(() => {
   container = null;
 });
 
-it('renders', async () => {
-  fetch.mockResponseOnce(JSON.stringify(data));
+describe('InstagramBackground', () => {
+  it('calls the right API', async () => {
+    fetch.mockResponseOnce(JSON.stringify(data));
 
-  // Use the asynchronous version of act to apply resolved promises
-  await act(async () => {
-    render(<InstagramBackground username="ferrytalecreative" />, container);
+    // Use the asynchronous version of act to apply resolved promises
+    await act(async () => {
+      render(<InstagramBackground username="ferrytalecreative" />, container);
+    });
+
+    //assert on the times called and arguments given to fetch
+    expect(fetch.mock.calls.length).toEqual(1);
+    expect(fetch.mock.calls[0][0]).toEqual(
+      '/.netlify/functions/photos?username=ferrytalecreative'
+    );
   });
 
-  // snapshot test
-  expect(pretty(container.innerHTML)).toMatchSnapshot();
+  it('renders', async () => {
+    fetch.mockResponseOnce(JSON.stringify(data));
 
-  //assert on the times called and arguments given to fetch
-  expect(fetch.mock.calls.length).toEqual(1);
-  expect(fetch.mock.calls[0][0]).toEqual(
-    '/.netlify/functions/photos?username=ferrytalecreative'
-  );
+    // Use the asynchronous version of act to apply resolved promises
+    await act(async () => {
+      render(<InstagramBackground username="ferrytalecreative" />, container);
+    });
+
+    // snapshot test
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
+  });
 });

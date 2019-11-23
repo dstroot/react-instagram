@@ -8,7 +8,7 @@ import { fetchNetlify } from './queries';
 
 // https://gist.github.com/kjintroverted/d67c7f12f68288f6ccf07cbd06fa66a8
 
-const InstagramBackground = ({ username, quality }) => {
+export const InstagramBackground = ({ username, quality }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
   const { data, isLoading, error } = useQuery(
@@ -98,8 +98,6 @@ const InstagramBackground = ({ username, quality }) => {
 
   return null;
 };
-
-export default InstagramBackground;
 
 InstagramBackground.propTypes = {
   /** The username of the Instagram account to use  */

@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const BackgroundWash = ({ filterOpts = [] }) => {
-  // CREATES A FILTER OVER TOP
+export const BackgroundWash = ({ filterOpts = [] }) => {
+  // creates a color "wash" over the page
   const Filter = styled.div`
     position: fixed;
     width: 100vw;
@@ -14,8 +14,6 @@ const BackgroundWash = ({ filterOpts = [] }) => {
 
   return <Filter />;
 };
-
-export default BackgroundWash;
 
 BackgroundWash.propTypes = {
   /** Pass a single color or a gradient. Example of gradient: filterOpts={["to bottom right", "teal", "blue", "purple"]} */

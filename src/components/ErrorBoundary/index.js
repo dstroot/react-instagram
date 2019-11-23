@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-// Error boundaries currently have to be classes.
+// Error boundaries currently *have to be classes*.
 export class ErrorBoundary extends Component {
   state = { hasError: false, error: null };
 

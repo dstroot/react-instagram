@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import styled from 'styled-components';
 
 // components
-import BackgroundWash from 'components/BackgroundWash';
 import { ErrorBoundary } from 'components/ErrorBoundary';
-import InstagramBackground from 'components/InstagramBackground';
+import { BackgroundWash } from 'components/BackgroundWash';
+import { InstagramBackground } from 'components/InstagramBackground';
 
-const Home = () => {
+export const Home = () => {
   useEffect(() => {
     document.title = `Instagram Background • Home`;
   });
@@ -14,9 +14,9 @@ const Home = () => {
   return (
     <Main>
       <ErrorBoundary fallback={<div>Could not fetch posts.</div>}>
-        {/* <Suspense fallback={<></>}> */}
-        <InstagramBackground username="ferrytalecreative" />
-        {/* </Suspense> */}
+        <Suspense fallback={<></>}>
+          <InstagramBackground username="ferrytalecreative" />
+        </Suspense>
       </ErrorBoundary>
       <BackgroundWash
         filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
@@ -38,8 +38,6 @@ const Home = () => {
     </Main>
   );
 };
-
-export default Home;
 
 // Styles
 const Main = styled.div`

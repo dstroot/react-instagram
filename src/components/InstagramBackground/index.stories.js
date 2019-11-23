@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 // components
-import InstagramBackground from ".";
+import { InstagramBackground } from '.';
 
 export default {
-  title: "Pac Life/Instagram Background",
-  component: InstagramBackground
+  title: 'Pac Life/Instagram Background',
+  component: InstagramBackground,
 };
 
 export const example = () => {
@@ -14,7 +14,7 @@ export const example = () => {
     <Main>
       <InstagramBackground
         username="ferrytalecreative"
-        filterOpts={["to bottom right", "teal", "blue", "purple"]}
+        filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
       />
       <Fence>
         <Splash>

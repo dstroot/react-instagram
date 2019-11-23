@@ -1,18 +1,20 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import Home from "../Home";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 
-storiesOf("Home", module)
+// component
+import { Home } from '.';
+
+storiesOf('Home', module)
   .addParameters({
     info: {
       inline: true,
       header: false,
       text: `This supports markdown!
-      
+
       ~~~js
       console.log("hello");
       ~~~
-      `
-    }
+      `,
+    },
   })
-  .add("show Home", () => <Home />);
+  .add('show Home', () => <Home />);

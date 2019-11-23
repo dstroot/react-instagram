@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test component Home: renders 1`] = `
+exports[`Test pageppu Home: it renders 1`] = `
 "<div class=\\"sc-bdVaJa iDPgMh\\">
   <div data-testid=\\"container\\" class=\\"sc-dxgOiQ jCNdaf\\">
     <div class=\\"sc-kGXeez iUJElA\\"><img src=\\"https://scontent-lax3-1.cdninstagram.com/vp/faabb8c4b137c218c14ba6731c6afbd6/5E6134C6/t51.2885-15/e15/s240x240/74700264_787934528308707_5359669060944196620_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com&amp;_nc_cat=103\\" alt=\\"recent post\\" class=\\"sc-kpOJdX jrHEFc\\"></div>
