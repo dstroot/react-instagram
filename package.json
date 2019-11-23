@@ -56,6 +56,8 @@
   "devDependencies": {
     "http-proxy-middleware": "^0.20.0",
     "jest-fetch-mock": "^2.1.2",
-    "netlify-lambda": "^1.6.3"
+    "netlify-lambda": "^1.6.3",
+    "prettier": "^1.19.1",
+    "pretty": "^2.0.0"
   }
 }

@@ -1,7 +1,9 @@
+// jest.mock('scheduler', () => require('scheduler/unstable_mock'));
+
 // mock canvas
 import 'jest-canvas-mock';
 
-global.fetch = require('jest-fetch-mock')
+global.fetch = require('jest-fetch-mock');
 
 // setup react testing library
 import '@testing-library/jest-dom/extend-expect';

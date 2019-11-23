@@ -1,23 +1,25 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
-class ErrorBoundary extends Component {
-  state = { hasError: false };
+// Error boundaries currently have to be classes.
+export class ErrorBoundary extends Component {
+  state = { hasError: false, error: null };
 
-  componentDidCatch(error, info) {
-    this.setState({ hasError: true });
+  static getDerivedStateFromError(error) {
+    return {
+      hasError: true,
+      error,
+    };
+  }
 
-    // You can also log the error to an error reporting service here
-    // logErrorToMyService(error, info);
+  componentDidCatch() {
+    // log the error to the server
   }
 
   render() {
     if (this.state.hasError) {
-      // render custom fallback UI
-      return <h1>Something went wrong!</h1>;
+      return this.props.fallback;
+      // <pre style={{whiteSpace: 'normal'}}>{this.state.error.message}</pre>
     }
-
     return this.props.children;
   }
 }
-
-export default ErrorBoundary;

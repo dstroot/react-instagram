@@ -1,9 +1,9 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 // components
 import BackgroundWash from 'components/BackgroundWash';
-import ErrorBoundary from 'components/ErrorBoundary';
+import { ErrorBoundary } from 'components/ErrorBoundary';
 import InstagramBackground from 'components/InstagramBackground';
 
 const Home = () => {
@@ -13,10 +13,10 @@ const Home = () => {
 
   return (
     <Main>
-      <ErrorBoundary>
-        <Suspense fallback={<></>}>
-          <InstagramBackground username="ferrytalecreative" />
-        </Suspense>
+      <ErrorBoundary fallback={<div>Could not fetch posts.</div>}>
+        {/* <Suspense fallback={<></>}> */}
+        <InstagramBackground username="ferrytalecreative" />
+        {/* </Suspense> */}
       </ErrorBoundary>
       <BackgroundWash
         filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
