@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import pretty from 'pretty';
@@ -30,7 +30,12 @@ describe('InstagramBackground', () => {
 
     // Use the asynchronous version of act to apply resolved promises
     await act(async () => {
-      render(<InstagramBackground username="ferrytalecreative" />, container);
+      render(
+        <Suspense fallback={<div>Suspended!</div>}>
+          <InstagramBackground username="ferrytalecreative" />
+        </Suspense>,
+        container
+      );
     });
 
     //assert on the times called and arguments given to fetch

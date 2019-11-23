@@ -15,7 +15,7 @@ export const InstagramBackground = ({ username, quality }) => {
     ['photos', { username }],
     fetchNetlify,
     {
-      // suspense: true,
+      suspense: true,
       retry: 3,
     }
   );
