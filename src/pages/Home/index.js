@@ -13,7 +13,7 @@ export const Home = () => {
 
   return (
     <Main>
-      <ErrorBoundary fallback={<div>Could not fetch posts.</div>}>
+      <ErrorBoundary fallback={<></>}>
         <Suspense fallback={<></>}>
           <InstagramBackground username="ferrytalecreative" />
         </Suspense>

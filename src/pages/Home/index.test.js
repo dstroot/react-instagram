@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-// import { render } from '@testing-library/react';
 import pretty from 'pretty';
 
 // component to test
@@ -27,25 +26,28 @@ afterEach(() => {
 
 describe('Test page Home:', () => {
   it('renders', async () => {
+    //arrange
     fetch.mockResponseOnce(JSON.stringify(data));
 
-    // Use the asynchronous version of act to apply resolved promises
+    // act (Use the asynchronous version of act to apply resolved promises)
     await act(async () => {
       render(<Home />, container);
     });
 
-    // snapshot test
+    // assert
     expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 
   it('contains the expected text', async () => {
+    //arrange
     fetch.mockResponseOnce(JSON.stringify(data));
 
-    // Use the asynchronous version of act to apply resolved promises
+    // act (Use the asynchronous version of act to apply resolved promises)
     await act(async () => {
       render(<Home />, container);
     });
 
+    // assert
     expect(container.textContent).toContain('Ferry Tale Creative');
   });
 });

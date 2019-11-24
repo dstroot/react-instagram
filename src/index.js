@@ -1,13 +1,9 @@
-// This must be the first line in src/index.js
-import 'react-app-polyfill/ie11';
-
-// react
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 // app
-import {App} from './App';
+import { App } from './App';
 
 // enable strict mode *and* concurrent mode
 const rootElement = document.getElementById('root');
