@@ -9,15 +9,18 @@ import { render, cleanup } from '@testing-library/react';
 // component to test
 import { BackgroundWash } from '.';
 
-afterEach(cleanup);
-
 describe('BackgroundWash', () => {
   it('renders', () => {
+    // arange
+
+    // act
     const { asFragment } = render(
       <BackgroundWash
         filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
       />
     );
+
+    // assert
     expect(asFragment()).toMatchSnapshot();
   });
 });

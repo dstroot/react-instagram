@@ -26,9 +26,10 @@ afterEach(() => {
 
 describe('InstagramBackground', () => {
   it('calls the right API', async () => {
+    // arrange
     fetch.mockResponseOnce(JSON.stringify(data));
 
-    // Use the asynchronous version of act to apply resolved promises
+    // act (Use the asynchronous version of act to apply resolved promises)
     await act(async () => {
       render(
         <Suspense fallback={<div>Suspended!</div>}>
@@ -38,7 +39,7 @@ describe('InstagramBackground', () => {
       );
     });
 
-    //assert on the times called and arguments given to fetch
+    //assert (on the times called and arguments given to fetch)
     expect(fetch.mock.calls.length).toEqual(1);
     expect(fetch.mock.calls[0][0]).toEqual(
       '/.netlify/functions/photos?username=ferrytalecreative'
@@ -46,14 +47,20 @@ describe('InstagramBackground', () => {
   });
 
   it('renders', async () => {
+    // arrange
     fetch.mockResponseOnce(JSON.stringify(data));
 
-    // Use the asynchronous version of act to apply resolved promises
+    // act (Use the asynchronous version of act to apply resolved promises)
     await act(async () => {
-      render(<InstagramBackground username="ferrytalecreative" />, container);
+      render(
+        <Suspense fallback={<div>Suspended!</div>}>
+          <InstagramBackground username="ferrytalecreative" />
+        </Suspense>,
+        container
+      );
     });
 
-    // snapshot test
+    // assert (snapshot test)
     expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 });
