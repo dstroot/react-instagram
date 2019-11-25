@@ -21,6 +21,7 @@ describe('BackgroundWash', () => {
     );
 
     // assert
+    expect(asFragment()).not.toBeNull();
     expect(asFragment()).toMatchSnapshot();
   });
 });

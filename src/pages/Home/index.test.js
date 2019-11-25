@@ -35,6 +35,7 @@ describe('Test page Home:', () => {
     });
 
     // assert
+    expect(container.innerHTML).not.toBeNull();
     expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 

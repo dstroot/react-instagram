@@ -61,6 +61,7 @@ describe('InstagramBackground', () => {
     });
 
     // assert (snapshot test)
+    expect(container.innerHTML).not.toBeNull();
     expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 });
