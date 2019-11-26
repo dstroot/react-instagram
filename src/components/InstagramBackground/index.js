@@ -11,7 +11,9 @@ import { fetchNetlify } from './queries';
 export const InstagramBackground = ({ username, quality }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
+  // const [quality, setQuality] = useState(1);
   const { data, isLoading, error } = useQuery(
+    //['photos', { username, quality }],
     ['photos', { username }],
     fetchNetlify,
     {
@@ -45,6 +47,28 @@ export const InstagramBackground = ({ username, quality }) => {
       );
     }
   }
+  
+// function calcQuality(imageDims) {
+//   switch(imageDims) {
+//   case (imageDims < 150):
+//     setQuality(0)
+//     break;
+//   case (imageDims < 240):
+//     setQuality(1)
+//     break;
+//   case (imageDims < 320):
+//     setQuality(2)
+//     break;
+//   case (imageDims < 480):
+//     setQuality(3)
+//     break;
+//   case (imageDims < 640):
+//     setQuality(4)
+//     break;
+//   default:
+//     setQuality(1)
+// }
+// }
 
   // updates tile dimensions on image load
   useEffect(calcImageDims, [images]);
