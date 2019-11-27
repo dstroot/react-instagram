@@ -44,25 +44,40 @@ export const InstagramBackground = ({ username }) => {
       );
       setImageDims(dimension);
 //       calcQuality(dimension);
-        switch(dimension) {
-      case (dimension < 150):
-    setQuality(0)
-    break;
-  case (dimension < 240):
-    setQuality(1)
-    break;
-  case (dimension < 320):
-    setQuality(2)
-    break;
-  case (dimension < 480):
-    setQuality(3)
-    break;
-  case (dimension < 640):
-    setQuality(4)
-    break;
-  default:
-    setQuality(1)
-}
+      console.log("Dim: " + dimension);
+      
+      
+      
+      if (dimension < 150) { setQuality(0) }
+       if (dimension < 240) { setQuality(1) }
+       if (dimension < 320) { setQuality(2) }
+       if (dimension < 480) { setQuality(3) }
+       if (dimension < 640) { setQuality(4) }
+      
+      
+      
+      
+      
+      
+//         switch(dimension) {
+//       case (dimension < 150):
+//     setQuality(0)
+//     break;
+//   case (dimension < 240):
+//     setQuality(1)
+//     break;
+//   case (dimension < 320):
+//     setQuality(2)
+//     break;
+//   case (dimension < 480):
+//     setQuality(3)
+//     break;
+//   case (dimension < 640):
+//     setQuality(4)
+//     break;
+//   default:
+//     setQuality(1)
+// }
       console.log(images);
       console.log("Quality: " + quality);
     }
