@@ -1,5 +1,7 @@
 // jest.mock('scheduler', () => require('scheduler/unstable_mock'));
 
+// we need to use the real fetch for some tests and mock fetch for others
+global.realFetch = global.fetch;
 global.fetch = require('jest-fetch-mock');
 
 // setup react testing library
