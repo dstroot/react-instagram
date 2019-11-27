@@ -55,16 +55,16 @@ export const InstagramBackground = ({ username }) => {
           newValue = 0;
         }
         if (dimension > 150 && dimension <= 240) {
-          newValue = 1;
+          newValue = 0;
         }
         if (dimension > 240 && dimension <= 320) {
-          newValue = 2;
+          newValue = 1;
         }
         if (dimension > 320 && dimension <= 480) {
-          newValue = 3;
+          newValue = 2;
         }
         if (dimension > 480 && dimension <= 640) {
-          newValue = 4;
+          newValue = 3;
         }
         if (dimension > 640) {
          newValue = 4;
