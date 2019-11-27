@@ -63,6 +63,8 @@ export const InstagramBackground = ({ username }) => {
   default:
     setQuality(1)
 }
+      console.log(images);
+      console.log("Quality: " + quality);
     }
   }
 
