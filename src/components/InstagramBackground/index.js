@@ -8,9 +8,10 @@ import { fetchNetlify } from './queries';
 
 // https://gist.github.com/kjintroverted/d67c7f12f68288f6ccf07cbd06fa66a8
 
-export const InstagramBackground = ({ username, quality }) => {
+export const InstagramBackground = ({ username }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
+  const [quality, setQuality] = useState(3);
   const { data, isLoading, error } = useQuery(
     ['photos', { username }],
     fetchNetlify,
@@ -38,13 +39,72 @@ export const InstagramBackground = ({ username, quality }) => {
     if (!images || !images.length) {
       setImageDims(0);
     } else {
-      setImageDims(
-        Math.floor(
+      let dimension = Math.floor(
           Math.sqrt((window.outerHeight * window.outerWidth) / images.length)
-        )
       );
+      setImageDims(dimension);
+//       calcQuality(dimension);
+      console.log("Dim: " + dimension);
+      
+      
+      
+      if (dimension < 150) { return setQuality(0)  }
+       if (dimension < 240) { return setQuality(1) }
+       if (dimension < 320) { return setQuality(2)  }
+       if (dimension < 480) { return setQuality(3)  }
+       if (dimension < 640) { return setQuality(4)  }
+      
+      
+      
+      
+      
+      
+//         switch(dimension) {
+//       case (dimension < 150):
+//     setQuality(0)
+//     break;
+//   case (dimension < 240):
+//     setQuality(1)
+//     break;
+//   case (dimension < 320):
+//     setQuality(2)
+//     break;
+//   case (dimension < 480):
+//     setQuality(3)
+//     break;
+//   case (dimension < 640):
+//     setQuality(4)
+//     break;
+//   default:
+//     setQuality(1)
+// }
+      console.log(images);
+      console.log("Quality: " + quality);
     }
   }
+
+  /** The quality of the images. Range is 0-4. 0 = 150x150, 1 = 240x240, 2 = 320x320, 3 = 480x480, 4 = 640x640. Defaults to 1 */
+// function calcQuality(dimension) {
+//   switch(dimension) {
+//   case (dimension < 150):
+//     setQuality(0)
+//     break;
+//   case (dimension < 240):
+//     setQuality(1)
+//     break;
+//   case (dimension < 320):
+//     setQuality(2)
+//     break;
+//   case (dimension < 480):
+//     setQuality(3)
+//     break;
+//   case (dimension < 640):
+//     setQuality(4)
+//     break;
+//   default:
+//     setQuality(1)
+// }
+// }
 
   // updates tile dimensions on image load
   useEffect(calcImageDims, [images]);
@@ -87,9 +147,9 @@ export const InstagramBackground = ({ username, quality }) => {
     return (
       <Container data-testid="container">
         {images &&
-          images.map(res => (
-            <Tile key={res[0].src}>
-              <Post src={res[quality || 1].src} alt="recent post" />
+          images.map((image, index) => (
+            <Tile key={index}>
+              <Post src={image[quality].src} alt="recent post" />
             </Tile>
           ))}
       </Container>
@@ -101,12 +161,7 @@ export const InstagramBackground = ({ username, quality }) => {
 
 InstagramBackground.propTypes = {
   /** The username of the Instagram account to use  */
-  username: PropTypes.string.isRequired,
-  /** The quality of the images. Range is 0-4. 0 = 150x150, 1 = 240x240, 2 = 320x320, 3 = 480x480, 4 = 640x640. Defaults to 1 */
-  quality: PropTypes.number,
+  username: PropTypes.string.isRequired
 };
 
-// Specifies the default values for props:
-InstagramBackground.defaultProps = {
-  quality: 1,
-};
+
