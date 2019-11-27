@@ -22,13 +22,14 @@ test('API call', async () => {
       `https://www.instagram.com/${username}/?__a=1`
     );
 
-    // assert
+    // assert (test response)
     expect(response).not.toBeNull();
     expect(response).toMatchSnapshot();
 
     let json = await response.json();
     expect(json).not.toBeNull();
 
+    // sanitize the results
     json = sanitize(json, [
       'graphql.user.biography',
       'graphql.user.external_url_linkshimmed',
