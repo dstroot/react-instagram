@@ -48,11 +48,11 @@ export const InstagramBackground = ({ username }) => {
       
       
       
-      if (dimension < 150) { setQuality(0) return }
-       if (dimension < 240) { setQuality(1) return}
-       if (dimension < 320) { setQuality(2) return }
-       if (dimension < 480) { setQuality(3) return }
-       if (dimension < 640) { setQuality(4) return }
+      if (dimension < 150) { return setQuality(0)  }
+       if (dimension < 240) { return setQuality(1) }
+       if (dimension < 320) { return setQuality(2)  }
+       if (dimension < 480) { return setQuality(3)  }
+       if (dimension < 640) { return setQuality(4)  }
       
       
       
