@@ -44,6 +44,25 @@ export const InstagramBackground = ({ username }) => {
       );
       setImageDims(dimension);
 //       calcQuality(dimension);
+        switch(dimension) {
+      case (dimension < 150):
+    setQuality(0)
+    break;
+  case (dimension < 240):
+    setQuality(1)
+    break;
+  case (dimension < 320):
+    setQuality(2)
+    break;
+  case (dimension < 480):
+    setQuality(3)
+    break;
+  case (dimension < 640):
+    setQuality(4)
+    break;
+  default:
+    setQuality(1)
+}
     }
   }
 
