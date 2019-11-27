@@ -49,20 +49,30 @@ export const InstagramBackground = ({ username }) => {
       // choose appropriate image size to download, but if we've
       // already dowmloaded a larger size, don't download a smaller one
       if (prevDimension < dimension) {
+        let newValue = 0
+        
+        if (dimension <= 150) {
+          newValue = 0;
+        }
+        if (dimension > 150 && dimension <= 240) {
+          newValue = 1;
+        }
+        if (dimension > 240 && dimension <= 320) {
+          newValue = 2;
+        }
+        if (dimension > 320 && dimension <= 480) {
+          newValue = 3;
+        }
+        if (dimension > 480 && dimension <= 640) {
+          newValue = 4;
+        }
         if (dimension > 640) {
-          return setQuality(4);
+         newValue = 4;
         }
-        if (dimension > 480) {
-          return setQuality(3);
-        }
-        if (dimension > 320) {
-          return setQuality(2);
-        }
-        if (dimension > 240) {
-          return setQuality(1);
-        }
-        if (dimension > 150) {
-          return setQuality(0);
+    
+        if (newValue > quality) {
+          setQuality(newValue);
+          console.log(newValue);
         }
       }
     }
