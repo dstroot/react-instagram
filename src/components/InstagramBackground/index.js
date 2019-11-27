@@ -11,7 +11,7 @@ import { fetchNetlify } from './queries';
 export const InstagramBackground = ({ username }) => {
   const [images, setImages] = useState(null);
   const [imageDims, setImageDims] = useState(0);
-  const [quality, setQuality] = useState(1);
+  const [quality, setQuality] = useState(3);
   const { data, isLoading, error } = useQuery(
     ['photos', { username }],
     fetchNetlify,
@@ -130,9 +130,9 @@ export const InstagramBackground = ({ username }) => {
     return (
       <Container data-testid="container">
         {images &&
-          images.map(res => (
-            <Tile key={res[0].src}>
-              <Post src={res[quality].src} alt="recent post" />
+          images.map((image, index) => (
+            <Tile key={index}>
+              <Post src={image[quality].src} alt="recent post" />
             </Tile>
           ))}
       </Container>
