@@ -51,6 +51,12 @@ export const InstagramBackground = ({ username }) => {
       if (prevDimension < dimension) {
         let newValue = 0;
 
+        // 0 = 150px
+        // 1 = 240px
+        // 2 = 320px
+        // 3 = 480px
+        // 4 = 640px
+
         if (dimension <= 150) {
           newValue = 0;
         }
