@@ -19,7 +19,8 @@ export const Home = () => {
         </Suspense>
       </ErrorBoundary>
       <BackgroundWash
-        filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
+//         filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
+        filterOpts={['to bottom right', 'darkorange', 'fuchsia', 'darkviolet']}
       />
       <Main>
         <Splash>
