@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import styled from 'styled-components';
 
 // components
@@ -7,6 +7,8 @@ import { BackgroundWash } from 'components/BackgroundWash';
 import { InstagramBackground } from 'components/InstagramBackground';
 
 export const Home = () => {
+  const [instagram, setInstagram] = useState('kyliecosmetics');
+
   useEffect(() => {
     document.title = `Instagram Background • Home`;
   });
@@ -15,7 +17,7 @@ export const Home = () => {
     <Main>
       <ErrorBoundary fallback={<></>}>
         <Suspense fallback={<></>}>
-          <InstagramBackground username="ferrytalecreative" />
+          <InstagramBackground username={instagram} />
         </Suspense>
       </ErrorBoundary>
       <BackgroundWash
@@ -27,16 +29,16 @@ export const Home = () => {
       />
       <Main>
         <Splash>
-          <Title>Ferry Tale Creative</Title>
+          <Title>Kylie Cosmetics</Title>
           <Lead>
-            Thanks for visiting us! Follow us on Instagram to get the lastest
-            looks. Also check out the page background! Cool right?
+            Thanks for visiting! Follow us on{' '}
+            <Link href={'https://www.instagram.com/' + instagram + '/'}>
+              Instagram
+            </Link>{' '}
+            to get the lastest looks. Check out the page background! Cool right?
           </Lead>
-          <Lead>
-            Our store will soon be open for business. Until then look around and
-            let us know what you think.
-          </Lead>
-          <Button>@ferrytalecreative</Button>
+          <Button>{instagram}</Button>
+          <WhiteButton>Try my Instagram!</WhiteButton>
         </Splash>
       </Main>
     </Main>
@@ -78,4 +80,24 @@ const Button = styled.button`
   padding: 1em 2em;
   border: 2px solid white;
   border-radius: 3px;
+  margin-top: 10px;
+`;
+
+const WhiteButton = styled.button`
+  background-color: White;
+  /* let background bleed through for text */
+  mix-blend-mode: lighten
+  font-weight: 600;
+  font-size: 1.1em;
+  padding: 1em 2em;
+  border: 2px solid white;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-top: 10px;
+`;
+
+const Link = styled.a`
+  text-decoration: none
+  color: white;
+  font-weight: 700;
 `;
