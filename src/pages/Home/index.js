@@ -24,7 +24,9 @@ export const Home = () => {
     setInput(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
+    
     if (input !== "") {
       // all good let's go
       setInstagram(input);
