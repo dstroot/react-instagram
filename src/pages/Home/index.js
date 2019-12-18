@@ -8,10 +8,43 @@ import { InstagramBackground } from 'components/InstagramBackground';
 
 export const Home = () => {
   const [instagram, setInstagram] = useState('kyliecosmetics');
+  const [validForm, setValidForm] = useState(true);
+  const [input, setInput] = useState('kyliecosmetics');
 
   useEffect(() => {
     document.title = `Instagram Background • Home`;
   });
+
+  const unClick = () => {
+    if (document.activeElement !== document.body) {
+      document.activeElement.blur();
+    }
+  };
+
+  const handleChange = event => {
+    setInput(event.target.value);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+
+    // check form data validity first
+    if (!form.checkValidity()) {
+      setValidForm(false);
+      console.log('here2');
+      unClick(); // remove focus on button
+      return;
+    }
+
+    // all good let's go
+    setValidForm(true);
+    setInstagram(input);
+
+    // reset everything
+    form.reset();
+    unClick(); // remove focus on button
+  };
 
   return (
     <Main>
@@ -29,7 +62,7 @@ export const Home = () => {
       />
       <Main>
         <Splash>
-          <Title>Kylie Cosmetics</Title>
+          <Title>{"Boom! It's " + instagram}</Title>
           <Lead>
             Thanks for visiting! Follow us on{' '}
             <Link href={'https://www.instagram.com/' + instagram + '/'}>
@@ -37,8 +70,26 @@ export const Home = () => {
             </Link>{' '}
             to get the lastest looks. Check out the page background! Cool right?
           </Lead>
-          <Button>{instagram}</Button>
-          <WhiteButton>Try my Instagram!</WhiteButton>
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className={!validForm ? 'was-validated' : ''}
+          >
+            <Input
+              name="instagram"
+              type="text"
+              className="form-control"
+              placeholder={instagram}
+              pattern=".*\S+.*"
+              data-parse="trim"
+              required
+              value={input}
+              onChange={handleChange}
+            />
+            <WhiteButton type="submit" value="Submit">
+              Try my Instagram!
+            </WhiteButton>
+          </form>
         </Splash>
       </Main>
     </Main>
@@ -73,7 +124,7 @@ const Lead = styled.p`
   font-weight: 300;
 `;
 
-const Button = styled.button`
+const Input = styled.input`
   color: white;
   background-color: transparent;
   font-size: 1.1em;
