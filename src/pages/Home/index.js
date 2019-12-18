@@ -29,7 +29,7 @@ export const Home = () => {
       // all good let's go
       setInstagram(input);
       // reset everything
-      form.reset();
+      // form.reset();
       unClick(); // remove focus on button
     }
   };
