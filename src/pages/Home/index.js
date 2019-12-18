@@ -8,7 +8,6 @@ import { InstagramBackground } from 'components/InstagramBackground';
 
 export const Home = () => {
   const [instagram, setInstagram] = useState('kyliecosmetics');
-  const [validForm, setValidForm] = useState(true);
   const [input, setInput] = useState('kyliecosmetics');
 
   useEffect(() => {
@@ -25,25 +24,14 @@ export const Home = () => {
     setInput(event.target.value);
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    const form = event.target;
-
-    // check form data validity first
-    if (!form.checkValidity()) {
-      setValidForm(false);
-      console.log('here2');
+  const handleSubmit = () => {
+    if (input !== "") {
+      // all good let's go
+      setInstagram(input);
+      // reset everything
+      form.reset();
       unClick(); // remove focus on button
-      return;
     }
-
-    // all good let's go
-    setValidForm(true);
-    setInstagram(input);
-
-    // reset everything
-    form.reset();
-    unClick(); // remove focus on button
   };
 
   return (
@@ -70,18 +58,10 @@ export const Home = () => {
             </Link>{' '}
             to get the lastest looks. Check out the page background! Cool right?
           </Lead>
-          <form
-            onSubmit={handleSubmit}
-            noValidate
-            className={!validForm ? 'was-validated' : ''}
-          >
+          <form onSubmit={handleSubmit}>
             <Input
               name="instagram"
               type="text"
-              className="form-control"
-              placeholder={instagram}
-              pattern=".*\S+.*"
-              data-parse="trim"
               required
               value={input}
               onChange={handleChange}
