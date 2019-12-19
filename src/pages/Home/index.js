@@ -96,18 +96,18 @@ const Splash = styled.div`
   position: relative;
   width: 70vw;
   padding-bottom: 10vh;
-  // padding-right: 10vw;
 `;
 
 const Title = styled.h3`
   // font-size: 3.5em;
-  // font-size: calc(10px + 2vh)
+  font-size: calc(1.25em + 2vmin);
   color: white;
   font-weight: 300;
 `;
 
 const Lead = styled.p`
   // font-size: 1.25em;
+  font-size: calc(0.75em + 2vmin);
   color: white;
   font-weight: 300;
 `;
