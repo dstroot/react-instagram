@@ -96,6 +96,7 @@ const Splash = styled.div`
 
 const Title = styled.h1`
   font-size: 3.5em;
+  // font-size: calc(10px + 2vh)
   color: white;
   font-weight: 300;
 `;
@@ -114,6 +115,7 @@ const Input = styled.input`
   border: 2px solid white;
   border-radius: 3px;
   margin-top: 10px;
+  margin-right: 10px;
 `;
 
 const WhiteButton = styled.button`
@@ -125,7 +127,6 @@ const WhiteButton = styled.button`
   padding: 1em 2em;
   border: 2px solid white;
   border-radius: 3px;
-  margin-left: 10px;
   margin-top: 10px;
 `;
 
