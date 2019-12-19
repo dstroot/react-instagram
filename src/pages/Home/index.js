@@ -100,7 +100,7 @@ const Splash = styled.div`
 
 const Title = styled.h3`
   // font-size: 3.5em;
-  font-size: calc(1.25em + 2vmin);
+  font-size: calc(2.25em + 2vmin);
   color: white;
   font-weight: 300;
 `;
