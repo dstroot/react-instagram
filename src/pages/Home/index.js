@@ -56,7 +56,7 @@ export const Home = () => {
             Boom! It's{' '}
             <Link href={'https://www.instagram.com/' + instagram + '/'}>
               {instagram}
-            </Link
+            </Link>
           </Title>
           <Lead>
             Thanks for visiting! Follow us on{' '}
