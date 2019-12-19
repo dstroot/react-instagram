@@ -52,7 +52,12 @@ export const Home = () => {
       />
       <Main>
         <Splash>
-          <Title>{"Boom! It's " + instagram}</Title>
+          <Title>
+            Boom! It's{' '}
+            <Link href={'https://www.instagram.com/' + instagram + '/'}>
+              {instagram}
+            </Link
+          </Title>
           <Lead>
             Thanks for visiting! Follow us on{' '}
             <Link href={'https://www.instagram.com/' + instagram + '/'}>
@@ -94,15 +99,15 @@ const Splash = styled.div`
   // padding-right: 10vw;
 `;
 
-const Title = styled.h1`
-  font-size: 3.5em;
+const Title = styled.h3`
+  // font-size: 3.5em;
   // font-size: calc(10px + 2vh)
   color: white;
   font-weight: 300;
 `;
 
 const Lead = styled.p`
-  font-size: 1.25em;
+  // font-size: 1.25em;
   color: white;
   font-weight: 300;
 `;
