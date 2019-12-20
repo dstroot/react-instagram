@@ -11,27 +11,31 @@ export const InstaForm = ({ value, handler }) => {
   };
 
   const handleChange = event => {
-    // input validation
-    if (event.target.value.length <= 30) {
-      setInput(event.target.value);
+    let str = event.target.value;
+    
+    // input cannot be longer than 30 char
+    if (str.length <= 30) {
+      return;
     }
+    
+    // str must be letters, numbers, period, or underscore
+    let exp = new RegExp("^[\w.]+$");
+    if (!exp.test(str)) {
+      return;
+    }
+    
+    setInput(event.target.value);
   };
+  
+  // Regex: anchor it with ^ and $ to make it mean "whole thing" and avoid partial mathching.
+  // We can get 'letters/numbers/underscore' with \w+, even inside a character class. "." gives 
+  // us the period. Finally we can make use of the i flag to not worry about capitalized letters
 
-  // Regedit to match field
-  // ^([\w.-](?!\.(com|net|html?|js|jpe?g|png)$)){5,}$
+  // https://regex101.com/r/47l22K/27
 
   // ^              # from start
-  // ([\w.-]        # \w is equal to [a-zA-Z0-9_]
-  //     (?!\.          # in front can NOT be a dot followed by
-  //         (com           # com
-  //         |net           # OR net
-  //         |html?         # OR htm or html     # ? means optional match
-  //         |js            # OR js
-  //         |jpe?g         # OR jpg or jpeg
-  //         |png           # OR png
-  //         )$             # block only if it is at the end
-  //     )              # end of the negative lookahead
-  // ){5,}          # match at least 5 characters in above conditions
+  // ([\w.]          # "\w" is equal to [a-zA-Z0-9_], "." is dot/period
+  // +               # "+" matches unlimited times (keep going)
   // $              # till the end
 
   const handleSubmit = event => {
