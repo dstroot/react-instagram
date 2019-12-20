@@ -19,10 +19,10 @@ export const InstaForm = ({ value, handler }) => {
     }
     
     // str must be letters, numbers, period, or underscore
-    let exp = new RegExp("^[\w.]+$");
-    if (!exp.test(str)) {
-      return;
-    }
+    //let exp = new RegExp("^[\w.]+$");
+    //if (!exp.test(str)) {
+    //  return;
+    //}
     
     setInput(event.target.value);
   };
