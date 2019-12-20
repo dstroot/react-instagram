@@ -121,6 +121,7 @@ const Input = styled.input`
   border-radius: 3px;
   margin-top: 10px;
   margin-right: 10px;
+  width: 160px;
 `;
 
 const WhiteButton = styled.button`
@@ -133,6 +134,7 @@ const WhiteButton = styled.button`
   border: 2px solid white;
   border-radius: 3px;
   margin-top: 10px;
+  width: 160px;
 `;
 
 const Link = styled.a`
