@@ -26,8 +26,8 @@ export const Home = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    
-    if (input !== "") {
+
+    if (input !== '') {
       // all good let's go
       setInstagram(input);
       // reset everything
@@ -74,7 +74,7 @@ export const Home = () => {
               onChange={handleChange}
             />
             <WhiteButton type="submit" value="Submit">
-              Try my Instagram!
+              Use my Instagram!
             </WhiteButton>
           </form>
         </Splash>
@@ -107,7 +107,7 @@ const Title = styled.h3`
 
 const Lead = styled.p`
   // font-size: 1.25em;
-  font-size: calc(0.75em + 2vmin);
+  font-size: calc(0.5em + 2vmin);
   color: white;
   font-weight: 300;
 `;
@@ -121,7 +121,7 @@ const Input = styled.input`
   border-radius: 3px;
   margin-top: 10px;
   margin-right: 10px;
-  width: 200px;
+  width: 185px;
 `;
 
 const WhiteButton = styled.button`
@@ -130,11 +130,11 @@ const WhiteButton = styled.button`
   mix-blend-mode: lighten
   font-weight: 600;
   font-size: 1.1em;
-  padding: 1em 0em;
+  padding: 1em 3em;
   border: 2px solid white;
   border-radius: 3px;
   margin-top: 10px;
-  width: 200px;
+  // width: 200px;
 `;
 
 const Link = styled.a`
