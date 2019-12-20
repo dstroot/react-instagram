@@ -14,15 +14,15 @@ export const InstaForm = ({ value, handler }) => {
     let str = event.target.value;
     
     // input cannot be longer than 30 char
-    if (str.length <= 30) {
+    if (str.length >= 30) {
       return;
     }
     
     // str must be letters, numbers, period, or underscore
-    //let exp = new RegExp("^[\w.]+$");
-    //if (!exp.test(str)) {
-    //  return;
-    //}
+    let exp = new RegExp("^[\w.]+$");
+    if (!exp.test(str)) {
+      return;
+    }
     
     setInput(event.target.value);
   };
