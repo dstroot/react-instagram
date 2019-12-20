@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const InstaForm = ({ value, handler }) => {
   const [input, setInput] = useState(value);
-  let exp = /^[\w.]+$/;
+  let exp = /^[\w.]*$/;
   
   const unClick = () => {
     if (document.activeElement !== document.body) {
@@ -35,7 +35,7 @@ export const InstaForm = ({ value, handler }) => {
 
   // ^              # from start
   // ([\w.]          # "\w" is equal to [a-zA-Z0-9_], "." is dot/period
-  // +               # "+" matches unlimited times (keep going)
+  // *               # "*" zero or more
   // $              # till the end
 
   const handleSubmit = event => {
