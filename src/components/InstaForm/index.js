@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export const InstaForm = ({ value, handler }) => {
   const [input, setInput] = useState(value);
-
+  let exp = new RegExp('^[\w.]+$');
+  
   const unClick = () => {
     if (document.activeElement !== document.body) {
       document.activeElement.blur();
@@ -18,11 +19,11 @@ export const InstaForm = ({ value, handler }) => {
       return;
     }
     
-    // str must be letters, numbers, period, or underscore
-    //let exp = new RegExp("^[\w.]+$");
-    //if (!exp.test(str)) {
-    //  return;
-    //}
+    // str must be letters, numbers, underscore or period
+    if (!exp.test(str)) {
+      console.log("regex failed");
+      //return;
+    }
     
     setInput(event.target.value);
   };
