@@ -121,7 +121,7 @@ const Input = styled.input`
   border-radius: 3px;
   margin-top: 10px;
   margin-right: 10px;
-  width: 160px;
+  width: 200px;
 `;
 
 const WhiteButton = styled.button`
@@ -130,11 +130,11 @@ const WhiteButton = styled.button`
   mix-blend-mode: lighten
   font-weight: 600;
   font-size: 1.1em;
-  padding: 1em 2em;
+  padding: 1em 0em;
   border: 2px solid white;
   border-radius: 3px;
   margin-top: 10px;
-  width: 160px;
+  width: 200px;
 `;
 
 const Link = styled.a`
