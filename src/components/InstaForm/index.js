@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const InstaForm = ({ value, handler }) => {
   const [input, setInput] = useState(value);
-  let exp = new RegExp('^[/\w.]+$');
+  let exp = new RegExp(`^[\w.]+$`);
   
   const unClick = () => {
     if (document.activeElement !== document.body) {
@@ -21,7 +21,7 @@ export const InstaForm = ({ value, handler }) => {
     
     // str must be letters, numbers, underscore or period
     if (!exp.test(str)) {
-      console.log("regex failed: " + exp + "str: " + str);
+      console.log("regex failed: " + exp + "  str: " + str);
       //return;
     }
     
