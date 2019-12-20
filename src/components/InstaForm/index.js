@@ -68,7 +68,7 @@ const Input = styled.input`
   border-radius: 3px;
   margin-top: 10px;
   margin-right: 10px;
-  min-width: 300px;
+  min-width: 220px;
 `;
 
 const WhiteButton = styled.button`
