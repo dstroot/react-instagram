@@ -21,8 +21,7 @@ export const InstaForm = ({ value, handler }) => {
     
     // str must be letters, numbers, underscore or period
     if (!exp.test(str)) {
-      console.log("regex failed: " + exp + "  str: " + str);
-      //return;
+      return;
     }
     
     setInput(event.target.value);
