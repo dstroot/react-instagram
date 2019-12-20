@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const InstaForm = ({ value, handler }) => {
   const [input, setInput] = useState(value);
-  let exp = new RegExp(`^[\w.]+$`);
+  let exp = /^[\w.]+$/;
   
   const unClick = () => {
     if (document.activeElement !== document.body) {
