@@ -10,6 +10,7 @@ import { InstagramBackground } from 'components/InstagramBackground';
 export const Home = () => {
   const [instagram, setInstagram] = useState('kyliecosmetics');
 
+  // set page title
   useEffect(() => {
     document.title = `Instagram Background • Home`;
   });
@@ -23,12 +24,7 @@ export const Home = () => {
       </ErrorBoundary>
       <BackgroundWash
         filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
-        // filterOpts={['to bottom right', 'darkorange', 'fuchsia', 'darkviolet']}
-        // filterOpts={['to bottom right', '#f8ff00', '#3ad59f']}
-        // filterOpts={['90deg', '#00C9FF 0%', '#92FE9D 100%']}
-        // filterOpts={['90deg', '#f8ff00 0%', '#92FE9D 100%']}
       />
-
       <Section>
         <Title>
           Boom! It's{' '}
