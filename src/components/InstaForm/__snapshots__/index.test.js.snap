@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InstaForm renders 1`] = `
+<DocumentFragment>
+  <form>
+    <input
+      class="sc-bdVaJa hwVuHC"
+      name="instagram"
+      required=""
+      type="text"
+      value=""
+    />
+    <button
+      class="sc-bwzfXH cvZdtp"
+      type="submit"
+      value="Submit"
+    >
+      Use my Instagram!
+    </button>
+  </form>
+</DocumentFragment>
+`;

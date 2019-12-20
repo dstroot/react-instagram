@@ -1,14 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test page Home: renders 1`] = `
-"<div class=\\"sc-bdVaJa iDPgMh\\">
-  <div class=\\"sc-EHOje kZCxfr\\"></div>
-  <div class=\\"sc-bdVaJa iDPgMh\\">
-    <div class=\\"sc-bwzfXH hNHvRd\\">
-      <h1 class=\\"sc-htpNat gzPCZx\\">Ferry Tale Creative</h1>
-      <p class=\\"sc-bxivhb fHYAUi\\">Thanks for visiting us! Follow us on Instagram to get the lastest looks. Also check out the page background! Cool right?</p>
-      <p class=\\"sc-bxivhb fHYAUi\\">Our store will soon be open for business. Until then look around and let us know what you think.</p><button class=\\"sc-ifAKCX bVPOgF\\">@ferrytalecreative</button>
-    </div>
+"<div class=\\"sc-htpNat kWgLAi\\">
+  <div class=\\"sc-gzVnrw jPjRTZ\\"></div>
+  <div class=\\"sc-bxivhb hHORVA\\">
+    <h3 class=\\"sc-ifAKCX lkPccf\\">Boom! It's <a href=\\"https://www.instagram.com/kyliecosmetics/\\" class=\\"sc-bZQynM gTJAIj\\">kyliecosmetics</a></h3>
+    <p class=\\"sc-EHOje dcNauY\\">Thanks for visiting! Follow us on <a href=\\"https://www.instagram.com/kyliecosmetics/\\" class=\\"sc-bZQynM gTJAIj\\">Instagram</a> to get the lastest looks. Check out the page background! Cool right?</p>
+    <form><input name=\\"instagram\\" type=\\"text\\" required=\\"\\" class=\\"sc-bdVaJa hwVuHC\\" value=\\"kyliecosmetics\\"><button type=\\"submit\\" value=\\"Submit\\" class=\\"sc-bwzfXH cvZdtp\\">Use my Instagram!</button></form>
   </div>
 </div>"
 `;

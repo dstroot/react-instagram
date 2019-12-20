@@ -49,6 +49,6 @@ describe('Test page Home:', () => {
     });
 
     // assert
-    expect(container.textContent).toContain('Ferry Tale Creative');
+    expect(container.textContent).toContain("Boom! It's kyliecosmetics");
   });
 });
