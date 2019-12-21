@@ -2,11 +2,11 @@
 
 exports[`Test page Home: renders 1`] = `
 "<div class=\\"sc-htpNat kWgLAi\\">
-  <div class=\\"sc-gzVnrw jPjRTZ\\"></div>
-  <div class=\\"sc-bxivhb hHORVA\\">
-    <h3 class=\\"sc-ifAKCX lkPccf\\">Boom! It's <a href=\\"https://www.instagram.com/kyliecosmetics/\\" class=\\"sc-bZQynM gTJAIj\\">kyliecosmetics</a></h3>
-    <p class=\\"sc-EHOje dcNauY\\">Thanks for visiting! Follow us on <a href=\\"https://www.instagram.com/kyliecosmetics/\\" class=\\"sc-bZQynM gTJAIj\\">Instagram</a> to get the lastest looks. Check out the page background! Cool right?</p>
-    <form><input name=\\"instagram\\" type=\\"text\\" required=\\"\\" class=\\"sc-bdVaJa isLXXY\\" value=\\"kyliecosmetics\\"><button type=\\"submit\\" value=\\"Submit\\" class=\\"sc-bwzfXH ljZSuA\\">Use my Instagram!</button></form>
+  <div class=\\"sc-bZQynM kBEEAQ\\"></div>
+  <div class=\\"sc-bxivhb kWZixK\\">
+    <h3 class=\\"sc-ifAKCX kDdUiS\\">Boom! It's <a href=\\"https://www.instagram.com/kyliecosmetics/\\" class=\\"sc-EHOje izkFYC\\">kyliecosmetics</a></h3>
+    <p>Thanks for visiting! Follow us on <a href=\\"https://www.instagram.com/kyliecosmetics/\\" class=\\"sc-EHOje izkFYC\\">Instagram</a> to get the lastest looks. Check out the page background! Cool right?</p>
+    <form><input name=\\"instagram\\" type=\\"text\\" required=\\"\\" class=\\"sc-bdVaJa bCSXtR\\" value=\\"kyliecosmetics\\"><button type=\\"submit\\" value=\\"Submit\\" class=\\"sc-bwzfXH cntZpS\\">Use my Instagram!</button></form>
   </div>
 </div>"
 `;

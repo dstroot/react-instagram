@@ -32,13 +32,13 @@ export const Home = () => {
             {instagram}
           </Link>
         </Title>
-        <Lead>
+        <p>
           Thanks for visiting! Follow us on{' '}
           <Link href={'https://www.instagram.com/' + instagram + '/'}>
             Instagram
           </Link>{' '}
           to get the lastest looks. Check out the page background! Cool right?
-        </Lead>
+        </p>
         <InstaForm value={instagram} handler={setInstagram} />
       </Section>
     </Main>
@@ -58,21 +58,19 @@ const Section = styled.div`
   position: relative;
   width: 70vw;
   padding-bottom: 10vh;
+  color: white;
+  font-weight: 300;
+  font-size: calc(0.75em + 2vmin);
 `;
 
 const Title = styled.h3`
-  // font-size: 3.5em;
-  font-size: calc(2.25em + 2vmin);
-  color: white;
+  font-size: calc(1.25em + 2vmin);
   font-weight: 300;
 `;
 
-const Lead = styled.p`
-  // font-size: 1.25em;
-  font-size: calc(0.5em + 2vmin);
-  color: white;
-  font-weight: 300;
-`;
+// const Lead = styled.p`
+//   font-size: calc(0.5em + 2vmin);
+// `;
 
 const Link = styled.a`
   text-decoration: none

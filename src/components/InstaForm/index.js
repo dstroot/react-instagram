@@ -66,7 +66,7 @@ export const InstaForm = ({ value, handler }) => {
 const Input = styled.input`
   color: white;
   background-color: transparent;
-  font-size: 1.1em;
+  font-size: 0.75em;
   padding: 1em;
   border: 2px solid white;
   border-radius: 3px;
@@ -81,7 +81,7 @@ const WhiteButton = styled.button`
   mix-blend-mode: lighten;
   color: blue;
   font-weight: 600;
-  font-size: 1.1em;
+  font-size: 0.75em;
   padding: 1em;
   border: 2px solid white;
   border-radius: 3px;
