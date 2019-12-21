@@ -4,14 +4,14 @@ exports[`InstaForm renders 1`] = `
 <DocumentFragment>
   <form>
     <input
-      class="sc-bdVaJa hwVuHC"
+      class="sc-bdVaJa isLXXY"
       name="instagram"
       required=""
       type="text"
       value=""
     />
     <button
-      class="sc-bwzfXH cvZdtp"
+      class="sc-bwzfXH ljZSuA"
       type="submit"
       value="Submit"
     >

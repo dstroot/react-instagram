@@ -4,7 +4,18 @@ import styled from 'styled-components';
 export const InstaForm = ({ value, handler }) => {
   const [input, setInput] = useState(value);
   let exp = /^[\w.]*$/;
-  
+
+  // Regex: anchor it with ^ and $ to make it mean "whole thing" and avoid partial mathching.
+  // We can get 'letters/numbers/underscore' with \w+, even inside a character class. "." gives
+  // us the period.
+
+  // https://regex101.com/r/47l22K/27
+
+  // ^              # from start
+  // [\w.]          # "\w" is equal to [a-zA-Z0-9_], "." is dot/period
+  // *              # "*" zero or more
+  // $              # till the end
+
   const unClick = () => {
     if (document.activeElement !== document.body) {
       document.activeElement.blur();
@@ -13,30 +24,19 @@ export const InstaForm = ({ value, handler }) => {
 
   const handleChange = event => {
     let str = event.target.value;
-    
+
     // input cannot be longer than 30 char
     if (str.length >= 30) {
       return;
     }
-    
+
     // str must be letters, numbers, underscore or period
     if (!exp.test(str)) {
       return;
     }
-    
+
     setInput(event.target.value);
   };
-  
-  // Regex: anchor it with ^ and $ to make it mean "whole thing" and avoid partial mathching.
-  // We can get 'letters/numbers/underscore' with \w+, even inside a character class. "." gives 
-  // us the period. Finally we can make use of the i flag to not worry about capitalized letters
-
-  // https://regex101.com/r/47l22K/27
-
-  // ^              # from start
-  // ([\w.]          # "\w" is equal to [a-zA-Z0-9_], "." is dot/period
-  // *               # "*" zero or more
-  // $              # till the end
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -86,5 +86,4 @@ const WhiteButton = styled.button`
   border: 2px solid white;
   border-radius: 3px;
   margin-top: 10px;
-  // width: 200px;
 `;

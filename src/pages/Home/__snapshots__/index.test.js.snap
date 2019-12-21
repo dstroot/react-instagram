@@ -6,7 +6,7 @@ exports[`Test page Home: renders 1`] = `
   <div class=\\"sc-bxivhb hHORVA\\">
     <h3 class=\\"sc-ifAKCX lkPccf\\">Boom! It's <a href=\\"https://www.instagram.com/kyliecosmetics/\\" class=\\"sc-bZQynM gTJAIj\\">kyliecosmetics</a></h3>
     <p class=\\"sc-EHOje dcNauY\\">Thanks for visiting! Follow us on <a href=\\"https://www.instagram.com/kyliecosmetics/\\" class=\\"sc-bZQynM gTJAIj\\">Instagram</a> to get the lastest looks. Check out the page background! Cool right?</p>
-    <form><input name=\\"instagram\\" type=\\"text\\" required=\\"\\" class=\\"sc-bdVaJa hwVuHC\\" value=\\"kyliecosmetics\\"><button type=\\"submit\\" value=\\"Submit\\" class=\\"sc-bwzfXH cvZdtp\\">Use my Instagram!</button></form>
+    <form><input name=\\"instagram\\" type=\\"text\\" required=\\"\\" class=\\"sc-bdVaJa isLXXY\\" value=\\"kyliecosmetics\\"><button type=\\"submit\\" value=\\"Submit\\" class=\\"sc-bwzfXH ljZSuA\\">Use my Instagram!</button></form>
   </div>
 </div>"
 `;
