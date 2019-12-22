@@ -7,7 +7,7 @@
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
 [context.production]
-  environment = { AWS_LAMBDA_JS_RUNTIME = "nodejs10.x" }
+  environment = { AWS_LAMBDA_JS_RUNTIME = "nodejs12.x" }
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
