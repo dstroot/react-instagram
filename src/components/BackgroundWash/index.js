@@ -9,7 +9,7 @@ export const BackgroundWash = ({ filterOpts = [] }) => {
     width: 100vw;
     height: 100vh;
     background-image: linear-gradient(${filterOpts.join()});
-    opacity: 0.7;
+    opacity: 0.6;
   `;
 
   return <Filter />;

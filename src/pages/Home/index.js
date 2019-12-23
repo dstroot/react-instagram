@@ -24,6 +24,8 @@ export const Home = () => {
       </ErrorBoundary>
       <BackgroundWash
         filterOpts={['to bottom right', 'teal', 'blue', 'purple']}
+        // filterOpts={['to right', '#ff00cc', '#333399']} // some pink
+        // filterOpts={['to top right', '#fcb045', '#fd1d1d', '#833ab4']} // instagram
       />
       <Section>
         <Title>
