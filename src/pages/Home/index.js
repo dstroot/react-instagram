@@ -62,7 +62,7 @@ const Section = styled.div`
   padding-bottom: 10vh;
   color: white;
   font-weight: 300;
-  font-size: calc(0.75em + 2vmin);
+  font-size: calc(0.75em + 1.5vmin);
 `;
 
 const Title = styled.h3`
@@ -70,12 +70,8 @@ const Title = styled.h3`
   font-weight: 300;
 `;
 
-// const Lead = styled.p`
-//   font-size: calc(0.5em + 2vmin);
-// `;
-
 const Link = styled.a`
   text-decoration: none
   color: white;
-  font-weight: 700;
+  font-weight: 500;
 `;
