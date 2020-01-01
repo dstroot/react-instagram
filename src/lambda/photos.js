@@ -26,7 +26,7 @@ let cache = {}; // Defined outside the function globally
 exports.handler = async function(event, context) {
   const { username } = event.queryStringParameters;
   try {
-    // check if it's cached
+    // check if it's cached first
     if (cache[username]) {
       return {
         headers: {
