@@ -86,4 +86,5 @@ const WhiteButton = styled.button`
   border: 2px solid white;
   border-radius: 3px;
   margin-top: 10px;
+  cursor: pointer;
 `;
