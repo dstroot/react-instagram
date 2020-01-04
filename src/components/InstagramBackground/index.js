@@ -126,7 +126,7 @@ export const InstagramBackground = ({ username }) => {
         {images &&
           images.map((image, index) => (
             <Tile key={index}>
-              <Post src={image[quality].src} alt="recent post" />
+              <Post src={image[quality].src} alt=" " /> 
             </Tile>
           ))}
       </Container>
