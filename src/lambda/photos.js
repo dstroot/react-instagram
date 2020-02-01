@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 
 let cache = {}; // Defined outside the function globally
+const hour = 60 * 60 * 1000;
 
 // Netlify provides the "event" and "context" parameters when the serverless
 // handler function is invoked.
@@ -28,13 +29,29 @@ exports.handler = async function(event, context) {
   try {
     // check if it's cached first
     if (cache[username]) {
-      return {
-        headers: {
-          'USED-CACHE': 'true',
-        },
-        statusCode: 200,
-        body: JSON.stringify(cache[username]),
-      };
+      const cachedData = JSON.parse(cache[username]);
+
+      // cache for 4 hours
+      const expired = cachedData.timestamp + hour * 4;
+      const now = Date.now(); // see note below
+
+      if (now < expired) {
+        return {
+          headers: {
+            'USED-CACHE': 'true',
+          },
+          statusCode: 200,
+          body: JSON.stringify(cachedData.json),
+        };
+      }
+
+      // return {
+      //   headers: {
+      //     'USED-CACHE': 'true',
+      //   },
+      //   statusCode: 200,
+      //   body: JSON.stringify(cache[username]),
+      // };
     }
 
     // otherwise go get it and cache it
@@ -51,7 +68,12 @@ exports.handler = async function(event, context) {
       return { statusCode: response.status, body: response.statusText };
     }
     const data = await response.json();
-    cache[username] = data;
+    // cache[username] = data;
+
+    cache[username] = JSON.stringify({
+      json: data,
+      timestamp: Date.now(),
+    });
 
     return {
       headers: {
