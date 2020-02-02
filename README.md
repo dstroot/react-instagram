@@ -27,7 +27,7 @@ Ran all test suites.
 
 ### Notes
 
-* Input is validated and sanitized (all code requires security). You cannot enter more than 30 characters, which is the maximum length of an instagram name and you can only enter letters, numbers, underscore or a period.
+* Input is validated and sanitized (all code requires security). You cannot enter more than 30 characters, which is the maximum length of an instagram name and you can only enter letters, numbers, underscore or a period. If you try anything else it simply won't allow it.
 * Netlify Lamda function was created to cache the API call so we don't get blocked by Instagram for too many API calls, and also to avoid corporate web blocking.
 * Uses netlify's tools to operate a local dev environment for our lambda function
   * Build run `netlify-lambda build`
