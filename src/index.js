@@ -7,10 +7,11 @@ import { App } from './App';
 
 // enable strict mode *and* concurrent mode
 const rootElement = document.getElementById('root');
-ReactDOM.createRoot(rootElement).render(
+ReactDOM.render(
   <StrictMode>
-    <App />
-  </StrictMode>
+      <App />
+  </StrictMode>,
+  rootElement
 );
 
 // If you want your app to work offline and load faster, you can change
