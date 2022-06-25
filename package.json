@@ -7,7 +7,7 @@
     "@testing-library/react": "^9.4.0",
     "encoding": "^0.1.12",
     "lodash": "^4.17.15",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^0.0.0-experimental-241c4467e",
